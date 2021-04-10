@@ -1,0 +1,18 @@
+{% extends "bootstrap/base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Welcome{% endblock %}
+{% block content %}
+
+<h1 style="text-align: center">Search</h1>
+
+    <div class="container" >
+        <form action="/" method="POST">
+            <dl>
+                {{ wtf.quick_form(form) }} <br>
+                <input class="btn btn-primary" type="submit" value="Login" style="margin: 0;position: absolute;left: 50%;-ms-transform: translateX(-50%);transform: translateX(-50%);" >
+            </dl>
+        </form>
+    </div>
+
+{% endblock %}
