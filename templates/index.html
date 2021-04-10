@@ -4,13 +4,13 @@
 {% block title %}Welcome{% endblock %}
 {% block content %}
 
-<h1 style="text-align: center">Search</h1>
+<h1 style="text-align: center">Welcome</h1>
 
-    <div class="container" >
+    <div class="container" style="margin-top: 100px">
         <form action="/" method="POST">
             <dl>
                 {{ wtf.quick_form(form) }} <br>
-                <input class="btn btn-primary" type="submit" value="Login" style="margin: 0;position: absolute;left: 50%;-ms-transform: translateX(-50%);transform: translateX(-50%);" >
+                <input class="btn btn-primary" type="submit" value="Search" style="margin: 0;position: absolute;left: 50%;-ms-transform: translateX(-50%);transform: translateX(-50%);" >
             </dl>
         </form>
     </div>
