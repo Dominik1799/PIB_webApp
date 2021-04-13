@@ -1,5 +1,22 @@
 {% extends "bootstrap/base.html" %}
 {% block title %}Welcome{% endblock %}
 {% block content %}
-    <h1>Search</h1>
+    <h1 style="text-align: center">Search</h1>
+    <div class="container">
+        <table class="table">
+      <tr>
+        <th>Product name</th>
+        <th>Description</th>
+        <th>Price</th>
+      </tr>
+        {% for item in items %}
+            <TR>
+                <TD class="c2">{{item[0]}}</TD>
+                <TD class="c3">{{item[1]}}</TD>
+                <TD class="c3">{{item[2]}}</TD>
+            </TR>
+        {% endfor %}
+    </table>
+    </div>
+
 {% endblock %}
