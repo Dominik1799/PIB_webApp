@@ -6,15 +6,6 @@
 
 <h1 style="text-align: center">Good E-shop</h1>
 
-    <div class="container" style="margin-top: 100px">
-        <h2>Unsafe search</h2>
-        <form action="/" method="POST">
-            <dl>
-                {{ wtf.quick_form(unsafeForm) }} <br>
-                <input name="unsafe" class="btn btn-primary" type="submit" value="Search" style="margin: 0;position: absolute;left: 50%;-ms-transform: translateX(-50%);transform: translateX(-50%);" >
-            </dl>
-        </form>
-    </div>
 
         <div class="container" style="margin-top: 100px">
             <h2>Safe search</h2>
@@ -25,5 +16,15 @@
                 </dl>
             </form>
         </div>
+
+        <div class="container" style="margin-top: 100px">
+        <h2>Unsafe search</h2>
+        <form action="/" method="POST">
+            <dl>
+                {{ wtf.quick_form(unsafeForm) }} <br>
+                <input name="unsafe" class="btn btn-primary" type="submit" value="Search" style="margin: 0;position: absolute;left: 50%;-ms-transform: translateX(-50%);transform: translateX(-50%);" >
+            </dl>
+        </form>
+    </div>
 
 {% endblock %}

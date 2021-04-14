@@ -40,6 +40,9 @@ def safe_query(query):
 def hello_world():
     unsafe_form = SearchForm()
     safe_form = SearchForm()
+    conn = psycopg2.connect(database="postgres", user="postgres",
+                            password="postgres", host="127.0.0.1", port="5432")
+    cur = conn.cursor()
     if "unsafe" in request.form and unsafe_form.is_submitted():
         return redirect(url_for("unsafe_query", query=request.form["search"]))
     if "safe" in request.form and safe_form.is_submitted():
