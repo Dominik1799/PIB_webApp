@@ -20,7 +20,8 @@ def unsafe_query(query):
     conn = psycopg2.connect(database="postgres", user="postgres",
                             password="postgres", host="127.0.0.1", port="5432")
     cur = conn.cursor()
-    cur.execute("SELECT name, description, price FROM products WHERE name LIKE '%" + query + "%'")
+    cur.execute("SELECT name, description, price " +
+                "FROM products WHERE name LIKE '%" + query + "%'")
     items = cur.fetchall()
     return render_template("search.html", items=items)
 
@@ -29,7 +30,8 @@ def unsafe_query(query):
 def safe_query(query):
     conn = psycopg2.connect(database="postgres", user="postgres",
                             password="postgres", host="127.0.0.1", port="5432")
-    q = sql.SQL("SELECT name, description, price FROM products WHERE name LIKE %s")
+    q = sql.SQL("SELECT name, description, price " +
+                "FROM products WHERE name LIKE %s")
     cur = conn.cursor()
     cur.execute(q, ("%" + query + "%",))
     items = cur.fetchall()
@@ -37,7 +39,7 @@ def safe_query(query):
 
 
 @app.route('/', methods=["GET", "POST"])
-def hello_world():
+def landing_page():
     unsafe_form = SearchForm()
     safe_form = SearchForm()
     conn = psycopg2.connect(database="postgres", user="postgres",
